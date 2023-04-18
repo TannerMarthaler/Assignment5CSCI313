@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+*{
+    background-color: rgb(243, 226, 205);  
+}
+
+#override-styles{
+    background-color: rgb(243, 226, 205);
+}

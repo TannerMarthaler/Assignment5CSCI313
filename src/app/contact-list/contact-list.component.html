@@ -1,0 +1,15 @@
+<h6>Contact list:</h6>
+<!-- Will use *ngFor to populate this section, just for a placeholder for the structure of the page -->
+<div *ngFor="let contact of contacts">
+  <ul>
+    <li>
+      <p>
+        Name: {{ contact.firstName }} {{ contact.lastName }} <br />Phone Number:
+        {{ contact.phoneNumber }} <br />Email: {{ contact.email }}
+      </p>
+    </li>
+  </ul>
+</div>
+
+<hr />
+<button class="btn btn-primary">Add Contact</button>
