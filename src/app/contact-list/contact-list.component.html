@@ -1,14 +1,23 @@
 <h6>Contact list:</h6>
 <!-- Will use *ngFor to populate this section, just for a placeholder for the structure of the page -->
 <div *ngFor="let contact of contacts">
-  <ul>
+  <div class="card" style="width: 18rem">
+    <div class="card-body">
+      <h6 class="card-title root">
+        <!-- Find a better way to display the information on hover -->
+        {{ contact.firstName }} {{ contact.lastName }}
+      </h6>
+      <div class="hidden">{{ contact.phoneNumber }}</div>
+    </div>
+  </div>
+  <!-- <ul>
     <li>
       <p>
         Name: {{ contact.firstName }} {{ contact.lastName }} <br />Phone Number:
         {{ contact.phoneNumber }} <br />Email: {{ contact.email }}
       </p>
     </li>
-  </ul>
+  </ul> -->
 </div>
 
 <hr />
