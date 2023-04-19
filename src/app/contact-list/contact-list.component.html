@@ -1,24 +1,74 @@
 <h6>Contact list:</h6>
-<!-- Will use *ngFor to populate this section, just for a placeholder for the structure of the page -->
 <div *ngFor="let contact of contacts">
-  <div class="card" style="width: 18rem">
+  <div class="card">
     <div class="card-body">
-      <h6 class="card-title root">
-        <!-- Find a better way to display the information on hover -->
+      <h6 class="card-title">
         {{ contact.firstName }} {{ contact.lastName }}
+        <a routerLink="/contact-information/:{{ contact.id }}">
+          <button class="btn btn-primary color-button">
+            Edit Information
+          </button></a
+        >
       </h6>
       <div class="hidden">{{ contact.phoneNumber }}</div>
     </div>
   </div>
-  <!-- <ul>
-    <li>
-      <p>
-        Name: {{ contact.firstName }} {{ contact.lastName }} <br />Phone Number:
-        {{ contact.phoneNumber }} <br />Email: {{ contact.email }}
-      </p>
-    </li>
-  </ul> -->
 </div>
 
 <hr />
-<button class="btn btn-primary">Add Contact</button>
+<div>
+  <button class="btn btn-primary color-button" (click)="displayForm()">
+    Add Contact
+  </button>
+
+  <div *ngIf="display">
+    <div>
+      <h5>Please enter the below contact information:</h5>
+      <form>
+        <div class="form-group">
+          <label for="inputFirstName">First Name:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="inputFirstName"
+            placeholder="Enter First Name"
+          />
+        </div>
+        <div class="form-group">
+          <label for="inputLastName">Last Name:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="inputLastName"
+            placeholder="Enter Last Name"
+          />
+        </div>
+        <div class="form-group">
+          <label for="inputPhoneNumber">Phone Number:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="inputPhoneNumber"
+            placeholder="Enter Phone Number"
+          />
+        </div>
+        <div class="form-group">
+          <label for="inputEmail">Email:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="inputEmail"
+            placeholder="Enter Email"
+          />
+        </div>
+      </form>
+    </div>
+
+    <div class="form-buttons">
+      <button class="btn btn-primary color-button" type="submit">Submit</button>
+      <button class="btn btn-primary color-button" (click)="closeForm()">
+        Cancel
+      </button>
+    </div>
+  </div>
+</div>

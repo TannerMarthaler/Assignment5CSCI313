@@ -2,6 +2,48 @@
     display : none;
 }
 
-.root:hover + .hidden{
+.card-body{
+    text-align : center;
+}
+
+.color-button{
+    margin-left : 10px;
+    background-color: grey;
+    border-color : grey;
+}
+
+.color-button:hover{
+    background-color : blue;
+    border-color : blue;
+}
+
+.card-body:hover .hidden{
     display: block;
+}
+
+.card{
+    border-color: black;
+    border-radius : 3px;
+    margin-bottom : 5px;
+    margin-left : 5px;
+    width : 20rem;
+}
+
+.form-group{
+    margin-left : 5px;
+}
+
+.form-control{
+    margin-top : 5px;
+    margin-bottom: 5px;
+    width : 20rem;
+    background-color: rgb(243, 226, 205);
+}
+
+h5{
+    text-align: center;
+}
+
+.form-buttons{
+    margin-top : 10px;
 }

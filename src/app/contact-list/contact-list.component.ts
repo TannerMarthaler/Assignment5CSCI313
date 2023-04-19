@@ -11,6 +11,7 @@ export class ContactListComponent {
 
 
   testContact : Contact = {
+    id : 1,
     firstName : 'Tanner',
     lastName : 'Marthaler',
     phoneNumber : 3203394356,
@@ -18,6 +19,7 @@ export class ContactListComponent {
   };
 
   testContact2 : Contact = {
+    id : 2,
     firstName : 'Bob',
     lastName : 'Riley',
     phoneNumber : 3333334444,
@@ -26,4 +28,13 @@ export class ContactListComponent {
 
   contacts : Contact[] = [this.testContact, this.testContact2];
 
+  display : boolean = false;
+
+  displayForm() : void{
+    this.display = true;
+  }
+
+  closeForm() : void{
+    this.display = false;
+  }
 }
