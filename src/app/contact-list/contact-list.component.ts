@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ContactService } from '../contact.service';
 
 import { Contact } from '../contact';
 
@@ -9,24 +10,24 @@ import { Contact } from '../contact';
 })
 export class ContactListComponent {
 
+  constructor(private contactService : ContactService){}
 
-  testContact : Contact = {
-    id : 1,
-    firstName : 'Tanner',
-    lastName : 'Marthaler',
-    phoneNumber : 3203394356,
-    email : 'tannermarthaler@gmail.com'
-  };
+  ngOnInit() : void{
+    this.getContacts();
+  }
 
-  testContact2 : Contact = {
-    id : 2,
-    firstName : 'Bob',
-    lastName : 'Riley',
-    phoneNumber : 3333334444,
-    email : 'bobriley@gmail.com'
-  };
+  getContacts() : void{
+    this.contacts = this.contactService.getContacts();
+  }
 
-  contacts : Contact[] = [this.testContact, this.testContact2];
+  selectedContact? : Contact;
+
+  getContact(id : number) : void{
+    this.selectedContact = this.contactService.getContact(id);
+  }
+
+
+  contacts : Contact[] = [];
 
   display : boolean = false;
 
@@ -36,5 +37,14 @@ export class ContactListComponent {
 
   closeForm() : void{
     this.display = false;
+  }
+
+  something : string = "";
+  output : string = "";
+
+  formatNumber(num : number) : string{
+    this.something = String(num);
+    this.output = '(' + this.something.substring(0, 2) + ')-' + this.something.substring(3, 5) + '-' + this.something.substring(6, 9);
+    return this.output;
   }
 }
