@@ -1,33 +1,32 @@
 <h6>Contact list:</h6>
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-4">
       <div *ngFor="let contact of contacts">
         <div class="card">
           <div class="card-body">
             <h6 class="card-title">
               {{ contact.firstName }} {{ contact.lastName }}
-              <!-- <a routerLink="/contact-information/:{{ contact.id }}"> -->
               <button
                 class="btn btn-primary color-button"
                 (click)="getContact(contact.id)"
               >
-                Edit Information
+                Show Information
               </button>
-              <!-- </a> -->
             </h6>
             <div class="hidden">Phone Number: {{ contact.phoneNumber }}</div>
           </div>
         </div>
       </div>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-4">
       <div *ngIf="selectedContact">
         <app-contact-information
           [contact]="selectedContact"
         ></app-contact-information>
       </div>
     </div>
+    <div class="col-md-4"></div>
   </div>
 </div>
 <hr />

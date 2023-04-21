@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ContactService } from '../contact.service';
 
 import { Contact } from '../contact';
@@ -8,12 +8,20 @@ import { Contact } from '../contact';
   templateUrl: './contact-list.component.html',
   styleUrls: ['./contact-list.component.css']
 })
-export class ContactListComponent {
+export class ContactListComponent implements OnInit {
 
   constructor(private contactService : ContactService){}
 
+  contacts : Contact[] = [];
+  formatedPhoneNumbers : string[] = [];
+
+  display : boolean = false;
+
   ngOnInit() : void{
     this.getContacts();
+    // this.contacts.forEach(contact => {
+    //   this.formatedPhoneNumbers.push(this.formatNumber(contact.phoneNumber))
+    // });
   }
 
   getContacts() : void{
@@ -27,9 +35,6 @@ export class ContactListComponent {
   }
 
 
-  contacts : Contact[] = [];
-
-  display : boolean = false;
 
   displayForm() : void{
     this.display = true;
@@ -42,8 +47,8 @@ export class ContactListComponent {
   something : string = "";
   output : string = "";
 
-  formatNumber(num : number) : string{
-    this.something = String(num);
+  formatNumber(id : number) : string{
+    this.something = String(this.contacts[id].phoneNumber);
     this.output = '(' + this.something.substring(0, 2) + ')-' + this.something.substring(3, 5) + '-' + this.something.substring(6, 9);
     return this.output;
   }

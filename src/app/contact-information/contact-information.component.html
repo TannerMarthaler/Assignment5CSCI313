@@ -1,4 +1,8 @@
-<div *ngIf="contact">
-  <h6>{{ contact.firstName }} {{ contact.lastName }}</h6>
-  u
+<div class="contactInfo">
+  <div *ngIf="contact">
+    <h6>
+      {{ contact.firstName }} {{ contact.lastName }} <br />Phone Number:
+      {{ contact.phoneNumber }} <br />Email: {{ contact.email }}
+    </h6>
+  </div>
 </div>
