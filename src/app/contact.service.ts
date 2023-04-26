@@ -12,6 +12,8 @@ export class ContactService {
 
   contactsList : Contact[] = contacts;
 
+  editContact : boolean = false;
+
   getContacts() : Contact[]{
     return this.contactsList;
   }
@@ -27,5 +29,18 @@ export class ContactService {
       }
     }
     return this.nullContact;
+  }
+
+  counter : number = 0;
+
+  deleteContact(id : number) : void{
+    this.counter = 0;
+    for( let i of this.contactsList){
+      if( i.id == id){
+        this.contactsList.splice(this.counter, 1)
+      }
+
+      this.counter++;
+    }
   }
 }

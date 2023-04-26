@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter } from '@angular/core';
 import { ContactService } from '../contact.service';
-import { Input } from '@angular/core';
+import { Input, Output } from '@angular/core';
 
 import { Contact } from '../contact';
 
@@ -14,6 +14,9 @@ export class ContactInformationComponent {
   constructor(private contactService : ContactService){}
 
   @Input() contact? : Contact;
+  @Output() editContact = new EventEmitter<boolean>();
 
-
+  editInfo() : void{
+    this.editContact.emit(true);
+  }
 }

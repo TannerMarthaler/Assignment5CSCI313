@@ -6,17 +6,6 @@
     text-align : center;
 }
 
-.color-button{
-    margin-left : 10px;
-    background-color: grey;
-    border-color : grey;
-}
-
-.color-button:hover{
-    background-color : blue;
-    border-color : blue;
-}
-
 .card-body:hover .hidden{
     display: block;
 }
@@ -42,4 +31,12 @@
 
 .form-buttons{
     margin-top : 10px;
+}
+
+.form-section{
+    margin-left : 5px;
+}
+
+.displayContent{
+    /* margin-top : 250px; */
 }

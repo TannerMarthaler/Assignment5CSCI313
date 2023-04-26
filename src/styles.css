@@ -8,3 +8,25 @@
 #override-styles{
     background-color: rgb(243, 226, 205);
 }
+
+.color-button-primary{
+    margin-left : 10px;
+    background-color: grey;
+    border-color : grey;
+}
+
+.color-button-primary:hover{
+    background-color : blue;
+    border-color : blue;
+}
+
+.color-button-danger{
+    margin-left : 10px;
+    background-color: grey;
+    border-color : grey;
+}
+
+.color-button-danger:hover{
+    background-color : red;
+    border-color : red;
+}

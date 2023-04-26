@@ -6,13 +6,15 @@ import { HomeComponent } from './home/home.component';
 import { ContactListComponent } from './contact-list/contact-list.component';
 import { RoutingModule } from './routing.module';
 import { ContactInformationComponent } from './contact-information/contact-information.component';
+import { EditInformationComponent } from './edit-information/edit-information.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     ContactListComponent,
-    ContactInformationComponent
+    ContactInformationComponent,
+    EditInformationComponent
   ],
   imports: [
     BrowserModule,

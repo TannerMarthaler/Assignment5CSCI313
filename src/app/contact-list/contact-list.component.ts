@@ -16,9 +16,11 @@ export class ContactListComponent implements OnInit {
   formatedPhoneNumbers : string[] = [];
 
   display : boolean = false;
+  editContactCheck : boolean = false;
 
   ngOnInit() : void{
     this.getContacts();
+
     // this.contacts.forEach(contact => {
     //   this.formatedPhoneNumbers.push(this.formatNumber(contact.phoneNumber))
     // });
@@ -32,24 +34,32 @@ export class ContactListComponent implements OnInit {
 
   getContact(id : number) : void{
     this.selectedContact = this.contactService.getContact(id);
+    this.editContactCheck = false;
   }
 
 
 
   displayForm() : void{
     this.display = true;
+    setTimeout(() => 
+      { window.scrollTo(0, document.body.scrollHeight); }, 5
+    );
+    
   }
 
   closeForm() : void{
     this.display = false;
   }
 
-  something : string = "";
-  output : string = "";
+  changeContactCheck() : void{
+    this.editContactCheck = true;
+  }
 
-  formatNumber(id : number) : string{
-    this.something = String(this.contacts[id].phoneNumber);
-    this.output = '(' + this.something.substring(0, 2) + ')-' + this.something.substring(3, 5) + '-' + this.something.substring(6, 9);
-    return this.output;
+  cancelContactCheck() : void{
+    this.editContactCheck= false;
+  }
+
+  deleteContact(id : number): void{
+    this.contactService.deleteContact(id);
   }
 }

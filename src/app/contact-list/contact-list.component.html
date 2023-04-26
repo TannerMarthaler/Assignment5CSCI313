@@ -1,17 +1,33 @@
-<h6>Contact list:</h6>
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-4">
+      <h6>Contact list:</h6>
+      <button
+        class="btn btn-primary color-button-primary"
+        (click)="displayForm()"
+      >
+        Add Contact
+      </button>
+      <br />
+      <br />
       <div *ngFor="let contact of contacts">
         <div class="card">
           <div class="card-body">
             <h6 class="card-title">
               {{ contact.firstName }} {{ contact.lastName }}
+              <br />
+              <br />
               <button
-                class="btn btn-primary color-button"
+                class="btn btn-primary color-button-primary"
                 (click)="getContact(contact.id)"
               >
                 Show Information
+              </button>
+              <button
+                class="btn btn-danger color-button-danger"
+                (click)="deleteContact(contact.id)"
+              >
+                Delete
               </button>
             </h6>
             <div class="hidden">Phone Number: {{ contact.phoneNumber }}</div>
@@ -19,24 +35,33 @@
         </div>
       </div>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-4 displayContent">
       <div *ngIf="selectedContact">
         <app-contact-information
           [contact]="selectedContact"
+          (editContact)="changeContactCheck()"
         ></app-contact-information>
       </div>
     </div>
-    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <div *ngIf="editContactCheck">
+        <app-edit-information
+          [contact]="selectedContact"
+          (cancelEditCheck)="cancelContactCheck()"
+        ></app-edit-information>
+        <!-- Finish the output binding to show the edit info screen -->
+      </div>
+    </div>
   </div>
 </div>
 <hr />
 <div>
-  <button class="btn btn-primary color-button" (click)="displayForm()">
+  <!-- <button class="btn btn-primary color-button" (click)="displayForm()">
     Add Contact
-  </button>
+  </button> -->
 
   <div *ngIf="display">
-    <div>
+    <div class="form-section">
       <h5>Please enter the below contact information:</h5>
       <form>
         <div class="form-group">
@@ -79,8 +104,13 @@
     </div>
 
     <div class="form-buttons">
-      <button class="btn btn-primary color-button" type="submit">Submit</button>
-      <button class="btn btn-primary color-button" (click)="closeForm()">
+      <button class="btn btn-primary color-button-primary" type="submit">
+        Submit
+      </button>
+      <button
+        class="btn btn-primary color-button-primary"
+        (click)="closeForm()"
+      >
         Cancel
       </button>
     </div>
