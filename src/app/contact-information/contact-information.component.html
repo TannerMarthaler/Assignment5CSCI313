@@ -1,7 +1,8 @@
 <div class="contactInfo">
   <div *ngIf="contact">
+    <h5>{{ contact.firstName }} {{ contact.lastName }}'s Information</h5>
     <h6>
-      {{ contact.firstName }} {{ contact.lastName }} <br />Phone Number:
+      Name: {{ contact.firstName }} {{ contact.lastName }} <br />Phone Number:
       {{ contact.phoneNumber }} <br />Email: {{ contact.email }}
     </h6>
     <button class="btn btn-primary color-button-primary" (click)="editInfo()">

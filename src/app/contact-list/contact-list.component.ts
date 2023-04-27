@@ -35,6 +35,7 @@ export class ContactListComponent implements OnInit {
   getContact(id : number) : void{
     this.selectedContact = this.contactService.getContact(id);
     this.editContactCheck = false;
+    window.scrollTo(0, 0);
   }
 
 
@@ -61,5 +62,20 @@ export class ContactListComponent implements OnInit {
 
   deleteContact(id : number): void{
     this.contactService.deleteContact(id);
+    this.selectedContact = undefined;
+    this.editContactCheck = false;
+  }
+
+  idCounter : number = 6;
+
+  addContact(fName : string, lName : string, phoneNumber : string, email : string) : void{
+    this.idCounter++;
+    var phoneNumberNum : number = Number(phoneNumber)
+    if( phoneNumberNum <= 9999999999 && phoneNumberNum >= 1111111111){
+      this.contactService.addContact(this.idCounter, fName, lName, phoneNumberNum, email);
+      this.display = false;
+    }
+    else{
+    }
   }
 }

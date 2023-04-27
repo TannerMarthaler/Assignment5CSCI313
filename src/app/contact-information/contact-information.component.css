@@ -1,10 +1,14 @@
-/* .contactInfo{
-    border-width : 2px;
+.contactInfo{
+    /* border-width : 1px;
     border-style: solid;
-    border-radius : 20px;
+    border-radius : 2px;
     border-color : black;
-} */
-
-h6{
+    width: 400px; */
     text-align: center;
+
+}
+
+.tab{
+    display : inline-block;
+    margin-left : 40px;
 }

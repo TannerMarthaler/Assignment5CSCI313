@@ -1,8 +1,53 @@
 <div>
   <div *ngIf="contact">
-    {{ contact.firstName }}
+    Old First Name: {{ contact.firstName }} <br />
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Enter New First Name"
+      #newFName
+    />
+    <br />
+    Old Last Name: {{ contact.lastName }} <br />
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Enter New Last Name"
+      #newLName
+    />
+    <br />
+    Old Phone Number: {{ contact.phoneNumber }} <br />
+    (Enter as xxxxxxxxxx) <br />
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Enter New Phone Number"
+      #newPhoneNumber
+    />
+    <br />
+    Old Email: {{ contact.email }} <br />
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Enter new Email"
+      #newEmail
+    />
+    <br />
+    <button
+      class="btn btn-success color-button-success"
+      (click)="
+        submitChanges(
+          newFName.value,
+          newLName.value,
+          newPhoneNumber.value,
+          newEmail.value
+        )
+      "
+    >
+      Submit
+    </button>
+    <button class="btn btn-danger color-button-danger" (click)="cancelEdit()">
+      Cancel
+    </button>
   </div>
-  <button class="btn btn-primary color-button-primary" (click)="cancelEdit()">
-    Cancel
-  </button>
 </div>
