@@ -1,0 +1,24 @@
+.homeList{
+    margin-left : 20px;
+    font-size: large;
+
+}
+
+.homeContent{
+    text-align: center;
+    margin-top : 40px;
+    font-size: large;
+
+}
+
+.greeting{
+    text-align: center;
+    margin-top : 20px;
+    margin-bottom : 40px;
+    font-size: large;
+
+}
+
+li{
+    margin-top : 10px;
+}

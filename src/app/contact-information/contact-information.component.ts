@@ -19,4 +19,8 @@ export class ContactInformationComponent {
   editInfo() : void{
     this.editContact.emit(true);
   }
+
+  close() : void{
+    this.contact = undefined;
+  }
 }

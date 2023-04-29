@@ -13,32 +13,26 @@ export class ContactListComponent implements OnInit {
   constructor(private contactService : ContactService){}
 
   contacts : Contact[] = [];
-  formatedPhoneNumbers : string[] = [];
+  selectedContact? : Contact;
+
 
   display : boolean = false;
   editContactCheck : boolean = false;
 
   ngOnInit() : void{
     this.getContacts();
-
-    // this.contacts.forEach(contact => {
-    //   this.formatedPhoneNumbers.push(this.formatNumber(contact.phoneNumber))
-    // });
   }
 
   getContacts() : void{
     this.contacts = this.contactService.getContacts();
   }
 
-  selectedContact? : Contact;
 
   getContact(id : number) : void{
     this.selectedContact = this.contactService.getContact(id);
     this.editContactCheck = false;
     window.scrollTo(0, 0);
   }
-
-
 
   displayForm() : void{
     this.display = true;
@@ -66,6 +60,7 @@ export class ContactListComponent implements OnInit {
     this.editContactCheck = false;
   }
 
+  
   idCounter : number = 6;
 
   addContact(fName : string, lName : string, phoneNumber : string, email : string) : void{
